@@ -21,9 +21,10 @@ public class ProductRepository {
         return productData.iterator();
     }
 
-    public void delete(String productId) {
-        productData.removeIf(product ->
-                product.getProductId().equals(productId)
-        );
+    public boolean deleteProduct(String id) {
+        if (id == null || id.isBlank()) {
+            return false;
+        }
+        return productData.removeIf(p -> id.equals(p.getProductId()));
     }
 }

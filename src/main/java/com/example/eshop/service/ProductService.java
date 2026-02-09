@@ -11,7 +11,7 @@ public interface ProductService {
 
     List<Product> findAll();
 
-    void delete(String productId);
+    boolean deleteProduct(String productId);
 
-    String editProductPost(String productId);
+
 }

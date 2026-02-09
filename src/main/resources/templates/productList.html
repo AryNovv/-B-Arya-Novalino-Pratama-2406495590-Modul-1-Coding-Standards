@@ -36,9 +36,9 @@
         </a>
 
 
-        <a th:href="@{/product/delete/{id}(id=${product.productId})}"
-           class="btn btn-danger btn-sm"
-           onclick="return confirm('Are you sure?')">
+        <a class="btn btn-danger btn-sm"
+           th:href="@{/product/delete/{id}(id=${product.productId})}"
+           onclick="return confirm('Delete this product?');">
           Delete
         </a>
       </td>
