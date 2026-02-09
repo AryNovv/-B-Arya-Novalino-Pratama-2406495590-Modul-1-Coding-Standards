@@ -36,16 +36,16 @@ public class ProductController {
         return "productList";
     }
 
-    @DeleteMapping("/delete/{id}")
-    @ResponseBody
-    public void deleteProduct(@PathVariable("id") String id) {
+    @GetMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable String id) {
         service.delete(id);
+        return "redirect:/product/list";
     }
 
     @GetMapping("/edit/{id}")
-    public String editProductPage(@PathVariable("id") String id, Model model) {
-
-        //make the edit later
-        return "redirect:/product/list";
+    public String editProductPost(@PathVariable String id, Model model) {
+        Product product = productService.getProductById(id);
+        model.addAttribute("product", product);
+        return "EditProduct";
     }
 }
