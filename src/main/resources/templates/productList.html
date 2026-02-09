@@ -36,10 +36,11 @@
         </a>
 
 
-        <button class="btn btn-danger btn-sm"
-                th:onclick="'deleteProduct(' + '\'' + ${product.productId} + '\'' + ')'">
+        <a class="btn btn-danger btn-sm"
+           th:href="@{/product/delete/{id}(id=${product.productId})}"
+           onclick="return confirm('Delete this product?');">
           Delete
-        </button>
+        </a>
       </td>
     </tr>
     </tbody>
