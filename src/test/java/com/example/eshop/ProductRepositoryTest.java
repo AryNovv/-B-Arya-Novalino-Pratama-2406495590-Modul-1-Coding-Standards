@@ -72,4 +72,59 @@ class ProductRepositoryTest {
 
         assertFalse(productIterator.hasNext());
     }
+
+    @Test
+    void testDeleteExistingProduct_success() {
+        Product product = new Product();
+        product.setProductId("1");
+        product.setProductName("Soap");
+        product.setProductQuantity(10);
+        productRepository.create(product);
+
+        boolean result = productRepository.deleteProduct("1");
+
+        assertTrue(result);
+        assertNull(productRepository.findById("1"));
+    }
+
+    @Test
+    void testDeleteNonExistingProduct_fail() {
+        boolean result = productRepository.deleteProduct("404");
+        assertFalse(result);
+    }
+
+
+    @Test
+    void testUpdateExistingProduct_success() {
+        Product product = new Product();
+        product.setProductId("1");
+        product.setProductName("Soap");
+        product.setProductQuantity(10);
+        productRepository.create(product);
+
+        Product updatedProduct = new Product();
+        updatedProduct.setProductId("1");
+        updatedProduct.setProductName("Shampoo");
+        updatedProduct.setProductQuantity(20);
+
+        boolean result = productRepository.update(updatedProduct);
+
+        assertTrue(result);
+
+        Product savedProduct = productRepository.findById("1");
+        assertEquals("Shampoo", savedProduct.getProductName());
+        assertEquals(20, savedProduct.getProductQuantity());
+    }
+
+    @Test
+    void testUpdateNonExistingProduct_fail() {
+        Product updatedProduct = new Product();
+        updatedProduct.setProductId("999");
+        updatedProduct.setProductName("Ghost");
+        updatedProduct.setProductQuantity(1);
+
+        boolean result = productRepository.update(updatedProduct);
+
+        assertFalse(result);
+    }
 }
