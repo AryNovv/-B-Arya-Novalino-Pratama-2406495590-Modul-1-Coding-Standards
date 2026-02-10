@@ -27,4 +27,37 @@ public class ProductRepository {
         }
         return productData.removeIf(p -> id.equals(p.getProductId()));
     }
+
+    public Product findById(String productId){
+        if (productId == null || productId.isBlank()) {
+            return null;
+        }
+
+        return productData.stream()
+                .filter(p -> productId.equals(p.getProductId()))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public boolean update(Product product) {
+        if (product == null || product.getProductId() == null
+                || product.getProductId().isBlank()) {
+            return false;
+        }
+
+        for (Product current : productData) {
+            if (product.getProductId().equals(current.getProductId())) {
+                applyUpdate(current, product);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void applyUpdate(Product target, Product source) {
+        target.setProductName(source.getProductName());
+        target.setProductQuantity(source.getProductQuantity());
+    }
+
 }

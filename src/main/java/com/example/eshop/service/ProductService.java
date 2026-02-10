@@ -13,5 +13,9 @@ public interface ProductService {
 
     boolean deleteProduct(String productId);
 
+    Product findById(String productId);
+
+    boolean update(Product product);
+
 
 }
