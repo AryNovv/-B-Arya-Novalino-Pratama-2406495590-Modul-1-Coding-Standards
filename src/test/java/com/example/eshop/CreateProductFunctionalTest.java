@@ -10,23 +10,16 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ExtendWith(SeleniumJupiter.class)
-class HomePageFunctionalTest {
+class CreateProductFunctionalTest {
 
-    /**
-     * The port number assigned to the running application during test execution.
-     * Set automatically during each test run by Spring Framework's test context.
-     */
     @LocalServerPort
     private int serverPort;
 
-    /**
-     * The base URL for testing. Default to {@code http://localhost}.
-     */
     @Value("${app.baseUrl:http://localhost}")
     private String testBaseUrl;
 
@@ -38,22 +31,24 @@ class HomePageFunctionalTest {
     }
 
     @Test
-    void pageTitle_isCorrect(ChromeDriver driver) {
-        // Exercise
-        driver.get(baseUrl);
-        String pageTitle = driver.getTitle();
+    void createProduct_shouldAppearInProductList(ChromeDriver driver) {
+        // Step 1: Open create product page
+        driver.get(baseUrl + "/product/create");
 
-        // Verify
-        assertEquals("ADV Shop", pageTitle);
-    }
+        // Step 2: Fill the form (simulate user input)
+        driver.findElement(By.id("nameInput"))
+                .sendKeys("Functional Test Product");
 
-    @Test
-    void welcomeMessage_homePage_isCorrect(ChromeDriver driver) {
-        // Exercise
-        driver.get(baseUrl);
-        String welcomeMessage = driver.findElement(By.tagName("h3")).getText();
+        driver.findElement(By.id("quantityInput"))
+                .sendKeys("30");
 
-        // Verify
-        assertEquals("Welcome", welcomeMessage);
+        // Step 3: Submit the form
+        driver.findElement(By.tagName("button")).click();
+
+        // Step 4: Verify product appears in product list page
+        String pageSource = driver.getPageSource();
+
+        assertTrue(pageSource.contains("Functional Test Product"));
+        assertTrue(pageSource.contains("30"));
     }
 }
