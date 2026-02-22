@@ -36,7 +36,7 @@ repositories {
 sonar {
     properties {
         property("sonar.projectKey", "AryNovv_-B-Arya-Novalino-Pratama-2406495590-Modul-1-Coding-Standards")
-        property("sonar.organization", "AryNov")
+        property("sonar.organization", "arynovv")
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
