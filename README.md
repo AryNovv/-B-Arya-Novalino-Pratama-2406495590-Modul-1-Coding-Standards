@@ -1,3 +1,6 @@
+
+<details>
+<summary> Modul 1 </summary>
 # Refleksi 1
 ## pada modul/tutorial ini saya sudah mencoba untuk mengimplementasi prinsip-prinsip clean code (meaningful names, method, dan self-documenting code) sehingga tidak perlu terlalu banyak comment untuk menjelaskan codenya.
 ## saya melihat kurangnya data validation pada form product, saya ganti kodenya agar input required pada input nama dan min=0 pada input quantity agar quantity non negative.
@@ -10,3 +13,12 @@
 1) code akan terus terduplikat yang melanggar konsep "Dont Repeat Yourself" sehingga code yang telah di duplicate redundant
 2) jika ada perubahan pada source code dan bagian yang telah terduplikasi, maka kita harus merubah setiap testnya.
 ## Solusi : pakai inheritance-class dan abstract-class, setup dan instantiate variables bisa dilakukan di class tersebut, lalu test-test selanjutnya inherit dari abstract-class tersebut. 
+</details>
+<details>
+<summary> Module 2 </summary>
+
+- menurut saya, aplikasi CI/CD saya di modul 2 ini telah memenuhi definisi CI/CD.
+- CI di lakukan di semua branch (especially main) untuk PR, diaman di lakukan pengecekan kualitas kode spesifik untuk case/program saya yang dilakukan oleh actions dengan unit-test dan sonarcloud untuk pengecekan kualitas kode umum.
+- CD berlangsung jika semua step CI sudah berhasil dan sukses merge ke branch main, lalu program langsung di deploy ke koyeb
+  
+</details>
