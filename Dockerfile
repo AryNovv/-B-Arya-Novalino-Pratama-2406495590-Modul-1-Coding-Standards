@@ -11,7 +11,7 @@ RUN ./gradlew clean bootJar -Dorg.gradle.dependency.verification=off
 
 FROM eclipse-temurin:21-jre-alpine AS runner
 
-ARG USER_NAME=adproshop
+ARG USER_NAME=advshop
 ARG USER_UID=1000
 ARG USER_GID=${USER_UID}
 
