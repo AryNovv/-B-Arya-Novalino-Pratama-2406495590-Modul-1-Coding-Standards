@@ -2,7 +2,6 @@ package com.example.eshop.service;
 
 import com.example.eshop.model.Product;
 import com.example.eshop.repository.ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
