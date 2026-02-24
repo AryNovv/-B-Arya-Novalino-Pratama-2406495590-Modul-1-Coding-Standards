@@ -10,6 +10,7 @@ plugins {
     jacoco
     id("org.springframework.boot") version "3.5.10"
     id("io.spring.dependency-management") version "1.1.7"
+    id("org.sonarqube") version "6.0.1.5171"
 }
 
 group = "com.example"
@@ -30,6 +31,14 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "AryNovv_-B-Arya-Novalino-Pratama-2406495590-Modul-1-Coding-Standards")
+        property("sonar.organization", "arynovv")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
 }
 
 dependencies {
