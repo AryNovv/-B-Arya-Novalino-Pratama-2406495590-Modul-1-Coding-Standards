@@ -11,7 +11,9 @@ import java.util.UUID;
 @Repository
 public class CarRepository {
 
-    private final List<Car> carData = new ArrayList<>();
+    static int id = 0;
+
+    private List<Car> carData = new ArrayList<>();
 
     public Car create(Car car) {
         if (car.getCarId() == null) {

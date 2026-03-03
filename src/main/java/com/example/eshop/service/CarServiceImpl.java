@@ -2,6 +2,7 @@ package com.example.eshop.service;
 
 import com.example.eshop.model.Car;
 import com.example.eshop.repository.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,11 +12,8 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
-    private final CarRepository carRepository;
-
-    public CarServiceImpl(CarRepository carRepository) {
-        this.carRepository = carRepository;
-    }
+    @Autowired
+    private CarRepository carRepository;
 
     @Override
     public Car create(Car car) {
@@ -33,7 +31,8 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car findById(String carId) {
-        return carRepository.findById(carId);
+        Car car = carRepository.findById(carId);
+        return car;
     }
 
     @Override
