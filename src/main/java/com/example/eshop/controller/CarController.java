@@ -2,8 +2,7 @@ package com.example.eshop.controller;
 
 
 import com.example.eshop.model.Car;
-import com.example.eshop.service.CarServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.eshop.service.CarService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,8 +13,11 @@ import java.util.List;
 @RequestMapping("/car")
 public class CarController {
 
-    @Autowired
-    private CarServiceImpl carService;
+    private final CarService carService;
+
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
 
     @GetMapping("/create")
     public String createCarPage(Model model) {
