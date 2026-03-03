@@ -4,50 +4,41 @@ import com.example.eshop.model.Car;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
 @Repository
 public class CarRepository {
 
-    static int id = 0;
-
-    private List<Car> carData = new ArrayList<>();
+    private final List<Car> carData = new ArrayList<>();
 
     public Car create(Car car) {
         if (car.getCarId() == null) {
-            UUID uuid = UUID.randomUUID();
-            car.setCarId(uuid.toString());
+            car.setCarId(UUID.randomUUID().toString());
         }
         carData.add(car);
         return car;
     }
 
-    public Iterator<Car> findAll() {
-        return carData.iterator();
+    public List<Car> findAll() {
+        return new ArrayList<>(carData);
     }
 
     public Car findById(String id) {
-        for (Car car : carData) {
-            if (car.getCarId().equals(id)) {
-                return car;
-            }
-        }
-        return null;
+        return carData.stream()
+                .filter(car -> car.getCarId().equals(id))
+                .findFirst()
+                .orElse(null);
     }
 
     public Car update(String id, Car updatedCar) {
-        for (int i = 0; i < carData.size(); i++) {
-            Car car = carData.get(i);
-            if (car.getCarId().equals(id)) {
-                car.setCarName(updatedCar.getCarName());
-                car.setCarColor(updatedCar.getCarColor());
-                car.setCarQuantity(updatedCar.getCarQuantity());
-                return car;
-            }
+        Car existingCar = findById(id);
+        if (existingCar != null) {
+            existingCar.setCarName(updatedCar.getCarName());
+            existingCar.setCarColor(updatedCar.getCarColor());
+            existingCar.setCarQuantity(updatedCar.getCarQuantity());
         }
-        return null;
+        return existingCar;
     }
 
     public void delete(String id) {
