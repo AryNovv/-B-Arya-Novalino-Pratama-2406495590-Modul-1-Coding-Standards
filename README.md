@@ -22,3 +22,9 @@
 - CD berlangsung jika semua step CI sudah berhasil dan sukses merge ke branch main, lalu program langsung di deploy ke koyeb
   
 </details>
+
+<details>
+<summary> Module 4 </summary>
+- Test-Driven Development (TDD) membantu sekali karena memastikan setiap fitur bekerja dengan benar sebelum melanjutkan ke tahap berikutnya dan dengan menulis test sebelum membuat main filenya , kita dapat menentukan perilaku yang diinginkan dari proyek dan lebih mudah menemukan bug & error.lain kali saya akan merancang test case yang akan di butuhkan dulu agar proses penulisan test dan implementasi jadi lebih cepat.
+- unit test yang dibuat pada modul ini sudah mengikuti prinsip F.I.R.S.T. test dapat berjalan cepat karena hanya menguji sebagian dari program dan test juga bersifat terisolasi karena menggunakan mock, testnya juga bersifat repeatable karena hasilnya tetap sama ketika dijalankan berkali-kali. 
+</details>
