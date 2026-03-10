@@ -86,4 +86,19 @@ public class PaymentServiceImpl implements PaymentService {
             payment.getOrder().setStatus("FAILED");
         }
     }
+
+    @Override
+    public Payment setStatus(Payment payment, String status) {
+
+        payment.setStatus(status);
+        updateOrderStatus(payment);
+
+        return payment;
+    }
+
+    @Override
+    public Payment getPayment(String paymentId) {
+        return paymentRepository.findById(paymentId);
+    }
+
 }
