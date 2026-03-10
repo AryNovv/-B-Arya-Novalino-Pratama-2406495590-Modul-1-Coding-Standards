@@ -3,6 +3,7 @@ package com.example.eshop;
 import com.example.eshop.model.Order;
 import com.example.eshop.model.Product;
 import com.example.eshop.repository.OrderRepository;
+import com.example.eshop.service.OrderServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
