@@ -4,6 +4,7 @@ import com.example.eshop.model.Order;
 import com.example.eshop.model.Payment;
 import com.example.eshop.model.Product;
 import com.example.eshop.repository.PaymentRepository;
+import com.example.eshop.service.PaymentServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
