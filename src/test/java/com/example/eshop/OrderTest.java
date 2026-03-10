@@ -1,5 +1,6 @@
 package com.example.eshop;
 
+import com.example.eshop.model.Order;
 import com.example.eshop.model.Product;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
