@@ -11,5 +11,19 @@ public class PaymentRepository {
 
     private List<Payment> paymentData = new ArrayList<>();
 
+    public Payment save(Payment payment) {
+        paymentData.add(payment);
+        return payment;
+    }
+
+    public Payment findById(String id) {
+        for (Payment payment : paymentData) {
+            if (payment.getId().equals(id)) {
+                return payment;
+            }
+        }
+        return null;
+    }
+
 
 }
