@@ -1,13 +1,18 @@
 package com.example.eshop;
 
 import com.example.eshop.model.Order;
+import com.example.eshop.model.Payment;
 import com.example.eshop.model.Product;
+import com.example.eshop.repository.PaymentRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 class PaymentRepositoryTest {
 
