@@ -101,4 +101,9 @@ public class PaymentServiceImpl implements PaymentService {
         return paymentRepository.findById(paymentId);
     }
 
+    @Override
+    public List<Payment> getAllPayments() {
+        return paymentRepository.findAll();
+    }
+
 }
